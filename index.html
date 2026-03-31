@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anamdesk | Crafting Code & Systems</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Geist+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Geist Mono', 'monospace'],
+                    },
+                    colors: {
+                        slate: { 950: '#020617' },
+                        indigo: { 500: '#6366f1' },
+                        emerald: { 500: '#10b981' }
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'slide-up': 'slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'pulse-slow': 'pulse 10s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #020617; color: #f1f5f9; }
+        .glass { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .text-gradient { background: linear-gradient(135deg, #818cf8 0%, #34d399 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); border-color: rgba(99, 102, 241, 0.3); background: rgba(30, 41, 59, 0.5); }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-indigo-500/30">
+
+    <!-- Minimal Nav -->
+    <nav class="fixed top-0 w-full z-50 p-4 md:p-6">
+        <div class="max-w-5xl mx-auto flex justify-between items-center glass rounded-2xl px-5 py-3 shadow-2xl">
+            <a href="#" class="text-lg font-bold tracking-tight">ANAM<span class="text-indigo-500">DESK</span></a>
+            <div class="hidden sm:flex items-center space-x-6 text-sm font-medium text-slate-400">
+                <a href="#about" class="hover:text-white transition-colors">Story</a>
+                <a href="#work" class="hover:text-white transition-colors">Work</a>
+                <a href="#contact" class="hover:text-white transition-colors">Chat</a>
+            </div>
+            <a href="mailto:anamdesk@gmail.com" class="text-sm font-bold text-indigo-400 hover:text-white transition-colors">Get in touch</a>
+        </div>
+    </nav>
+
+    <!-- Hero: The Calm Intro -->
+    <section class="relative min-h-screen flex items-center px-6 overflow-hidden">
+        <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-600/10 rounded-full blur-[120px] animate-pulse-slow"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-emerald-600/10 rounded-full blur-[120px] animate-pulse-slow"></div>
+
+        <div class="max-w-4xl mx-auto z-10 pt-20">
+            <p class="font-mono text-indigo-400 text-sm mb-6 animate-fade-in uppercase tracking-widest">Hey there, I'm Anam</p>
+            <h1 class="text-5xl md:text-8xl font-bold tracking-tight leading-[0.9] mb-8 animate-slide-up">
+                Building systems that <span class="text-gradient">actually work.</span>
+            </h1>
+            <p class="text-slate-400 text-lg md:text-2xl max-w-2xl leading-relaxed mb-10 animate-slide-up" style="animation-delay: 0.1s">
+                I'm a Software Engineer who enjoys turning complex problems into simple, scalable code. I've spent the last decade deep in backend architectures and high-traffic platforms.
+            </p>
+            <div class="flex flex-wrap gap-4 animate-slide-up" style="animation-delay: 0.2s">
+                <a href="#work" class="px-8 py-4 bg-white text-black rounded-xl font-bold hover:bg-indigo-500 hover:text-white transition-all">Read my story</a>
+                <div class="flex items-center space-x-4 px-2">
+                    <a href="https://github.com/anamdesk" target="_blank" class="text-slate-400 hover:text-white transition-colors"><i data-lucide="github"></i></a>
+                    <a href="https://linkedin.com/in/anamdesk" target="_blank" class="text-slate-400 hover:text-white transition-colors"><i data-lucide="linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: My Story / Experience -->
+    <section id="work" class="py-32 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+                <div class="md:col-span-4 reveal">
+                    <h2 class="text-3xl font-bold mb-6">The Journey</h2>
+                    <p class="text-slate-400 leading-relaxed">
+                        I've worked with everything from government portals to global supply chain ERPs. My focus is always the same: performance, security, and clean architecture.
+                    </p>
+                </div>
+                
+                <div class="md:col-span-8 space-y-16">
+                    <!-- Koltiva -->
+                    <div class="reveal">
+                        <span class="text-xs font-mono text-indigo-500 mb-2 block uppercase tracking-wider">2020 — 2025</span>
+                        <h3 class="text-2xl font-bold mb-2">Software Engineer at Koltiva</h3>
+                        <p class="text-slate-400 leading-relaxed mb-6">
+                            Deep-dived into building modular ERP systems. I was responsible for making sure the finance, logistics, and reporting modules talked to each other perfectly while keeping the system fast and secure.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-3 py-1 glass rounded-full">Node.js</span>
+                            <span class="text-xs px-3 py-1 glass rounded-full">Scalable Arch</span>
+                            <span class="text-xs px-3 py-1 glass rounded-full">ERP</span>
+                        </div>
+                    </div>
+
+                    <!-- Oketiket -->
+                    <div class="reveal">
+                        <span class="text-xs font-mono text-slate-500 mb-2 block uppercase tracking-wider">2014 — 2019</span>
+                        <h3 class="text-2xl font-bold mb-2">Lead Developer at Oketiket</h3>
+                        <p class="text-slate-400 leading-relaxed mb-6">
+                            Managed a platform handling over a thousand daily transactions. It was a fast-paced environment where optimizing database queries by 40% actually meant something for the business.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-3 py-1 glass rounded-full">API Integration</span>
+                            <span class="text-xs px-3 py-1 glass rounded-full">Backend Lead</span>
+                            <span class="text-xs px-3 py-1 glass rounded-full">Travel Tech</span>
+                        </div>
+                    </div>
+
+                    <!-- Gamatechno -->
+                    <div class="reveal">
+                        <span class="text-xs font-mono text-slate-500 mb-2 block uppercase tracking-wider">2009 — 2014</span>
+                        <h3 class="text-2xl font-bold mb-2">Early Days at Gamatechno</h3>
+                        <p class="text-slate-400 leading-relaxed mb-6">
+                            Where it all started. Building web apps for education and government. Learned the ropes of fullstack development and realized that a 1-second response time is the gold standard.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Stack / Tools -->
+    <section id="stack" class="py-32 bg-slate-900/30 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 italic">The Toolkit</h2>
+                <p class="text-slate-400">Just some of the tech I use to bring ideas to life.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
+                <div class="glass p-8 rounded-3xl card-hover text-center">
+                    <i data-lucide="cpu" class="mx-auto mb-4 text-indigo-400"></i>
+                    <h4 class="font-bold">Backend</h4>
+                    <p class="text-xs text-slate-500 mt-2">Node.js, PHP, REST</p>
+                </div>
+                <div class="glass p-8 rounded-3xl card-hover text-center">
+                    <i data-lucide="database" class="mx-auto mb-4 text-emerald-400"></i>
+                    <h4 class="font-bold">Database</h4>
+                    <p class="text-xs text-slate-500 mt-2">SQL, Redis, Optimization</p>
+                </div>
+                <div class="glass p-8 rounded-3xl card-hover text-center">
+                    <i data-lucide="cloud" class="mx-auto mb-4 text-purple-400"></i>
+                    <h4 class="font-bold">DevOps</h4>
+                    <p class="text-xs text-slate-500 mt-2">Docker, CI/CD, Linux</p>
+                </div>
+                <div class="glass p-8 rounded-3xl card-hover text-center">
+                    <i data-lucide="zap" class="mx-auto mb-4 text-orange-400"></i>
+                    <h4 class="font-bold">Modern</h4>
+                    <p class="text-xs text-slate-500 mt-2">AI Tools, Microservices</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Philosophy -->
+    <section class="py-32 px-6">
+        <div class="max-w-3xl mx-auto text-center reveal">
+            <h2 class="text-2xl md:text-4xl font-medium leading-snug">
+                "I don't just write code. I build solutions that help businesses scale without the technical headache."
+            </h2>
+            <div class="mt-10 flex items-center justify-center space-x-4">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-500 to-emerald-500"></div>
+                <div class="text-left">
+                    <p class="font-bold text-sm">Khoirul Anam</p>
+                    <p class="text-xs text-slate-500 uppercase tracking-tighter">Software Engineer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="py-20 border-t border-slate-900 px-6">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div>
+                <h3 class="text-3xl font-bold mb-4">Let's build something.</h3>
+                <p class="text-slate-400">Open for interesting projects or just a casual tech chat.</p>
+                <a href="mailto:anamdesk@gmail.com" class="inline-block mt-6 text-2xl font-bold text-indigo-400 hover:text-white transition-colors">anamdesk@gmail.com</a>
+            </div>
+            
+            <div class="flex space-x-6">
+                <a href="https://linkedin.com/in/anamdesk" target="_blank" class="p-4 glass rounded-2xl hover:bg-white hover:text-black transition-all"><i data-lucide="linkedin"></i></a>
+                <a href="https://github.com/anamdesk" target="_blank" class="p-4 glass rounded-2xl hover:bg-white hover:text-black transition-all"><i data-lucide="github"></i></a>
+            </div>
+        </div>
+        <div class="max-w-5xl mx-auto mt-20 pt-8 border-t border-slate-900/50 flex justify-between items-center text-[10px] font-mono text-slate-600 uppercase tracking-widest">
+            <span>© 2024 ANAMDESK</span>
+            <span>Handcrafted in Indonesia</span>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
